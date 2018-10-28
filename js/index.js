@@ -1,4 +1,28 @@
 $(document).ready(function () {
+    $("input[name='discount']").change(function () {
+        var maxAllowed = 1;
+        var cnt = $("input[name='discount']:checked").length;
+        if (cnt > maxAllowed) {
+            $(this).prop("checked", "");
+            alert('Voit valita vain ' + maxAllowed + ':n alennuksen.');
+        }
+    });
+});
+$(document).ready(function () {
+    $("#info").hide();
+});
+$(document).ready(function () {
+    $("#hide").click(function () {
+        $("#info").hide("slow");
+    });
+});
+$(document).ready(function () {
+    $("#show").click(function () {
+        $("#info").show("slow");
+    });
+});
+
+$(document).ready(function () {
     $('#calculatePrice').click(function () {
         var under7Checked = $('#under7').is(':checked');
         var under15Checked = $('#under15').is(':checked');
