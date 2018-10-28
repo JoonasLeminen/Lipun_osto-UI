@@ -1,0 +1,8 @@
+footer{
+    margin-top: 50px;
+    position: static;
+    background-color: gray;
+    text-align: center;
+    font-size: 15px;
+    font-family: "Times New Roman", Times, serif;
+}

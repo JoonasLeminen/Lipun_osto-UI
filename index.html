@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" crossorigin="anonymous"></script>
+    <script src="js/index.js"></script>
+    <link rel="stylesheet" href="css/index.css">
+    <title>Lipun ostaminen</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h5>Osta lippu maatalousnäyttelyyn!</h5>
+            </div>
+            <div class="col-md-12">
+                <h6>Lipun tilaus kestää alle minuutin.</h6>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">Syötä tietosi alla oleviin kohtiin.</div>
+        </div>
+        <form id="frm1">
+            <div class="form-group">
+                <div class="form-row col-md-2">
+                    Nimesi
+                    <input type="text" class="form-control" id="fullName" name="fullName" placeholder="Koko nimi">
+                </div>
+                <div class="form-row col-md-3">
+                    Sähköpostiosoitteesi
+                    <input type="text" class="form-control" id="email" name="email" placeholder="Email">
+                </div>
+                <div class="form-row col-md-2">
+                    <button type="button" class="btn btn-primary" onclick="submitName()">Tallenna nimi</button>
+                </div>
+                <div class="form-row col-md-2">
+                    <button class="btn btn-primary" id="calculatePrice" type="button">Laske hinta</button>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="col-md-2">Valitse alennuksesi</div>
+                <div class="col-md-2">
+                    <div class="form-check">
+                        <li class="small"><input class="form-check-input" type="checkbox" name="discount" id="under7">Alle
+                            7 vuotias</li>
+                        <li class="small"><input class="form-check-input" type="checkbox" name="discount" id="under15">7-15
+                            vuotias</li>
+                        <li class="small"><input class="form-check-input" type="checkbox" name="discount" id="over65">Yli
+                            65 vuotias</li>
+                        <li class="small"><input class="form-check-input" type="checkbox" name="discount" id="mtkMember">Mtk:n
+                            jäsen</li>
+                        <li class="small"><input class="form-check-input" type="checkbox" name="discount" id="student">Opiskelija</li>
+                        <li class="small"><input class="form-check-input" type="checkbox" name="discount" id="conscript">Varusmies</li>
+                        <li class="small"><input class="form-check-input" type="checkbox" name="discount" id="mtkStudent">Mtk
+                            jäsen & opiskelija</li>
+                    </div>
+                </div>
+                <div class="col-md-6" id="ticket">
+                    Lippusi tulostuu tähän:
+                    <p id="lippuNimi"></p>
+                    <p id="lippuEmail"></p>
+                    <p id="lippuHinta"></p>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2">
+                <button type="button" id="show" class="btn btn-primary">Klikkaa nähdäksesi lisätiedot</button>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6" id="info">
+                Normaalihinta 16 e<br>
+                Alle 7 v. ilmaiseksi<br>
+                7-15 v. 50% alennus<br>
+                65 v. ja yli: 50 % alennus<br>
+                Mtk jäsen: 15 % alennus<br>
+                Varusmies: 50 % alennus<br>
+                Opiskelija: 45 % alennus<br>
+                Mtk jäsen & opiskelija: 60% alennus<br><br>
+                <strong>Sammonlahden maatalousnäyttely</strong><br>
+                Notkopellonraitti 2<br>
+                53850, Lappeenranta<br>
+                <a href="mailto:sammonlahdenmaatalous@lpr.fi">sammonlahdenmaatalous@lpr.fi</a><br>
+                <button type="button" id="hide" class="btn btn-primary">Sulje lisätiedot</button><br>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>Made by: Joonas Leminen Saimaan AMK 2018</p>
+        <p><a href="mailto:joonas.leminen@student.saimia.fi">joonas.leminen@student.saimia.fi</a></p>
+    </footer>
+</body>
+
+<script>
+    $(document).ready(function () {
+        $("input[name='discount']").change(function () {
+            var maxAllowed = 1;
+            var cnt = $("input[name='discount']:checked").length;
+            if (cnt > maxAllowed) {
+                $(this).prop("checked", "");
+                alert('Voit valita vain ' + maxAllowed + ':n alennuksen.');
+            }
+        });
+    });
+    $(document).ready(function () {
+        $("#info").hide();
+    });
+    $(document).ready(function () {
+        $("#hide").click(function () {
+            $("#info").hide("slow");
+        });
+    });
+    $(document).ready(function () {
+        $("#show").click(function () {
+            $("#info").show("slow");
+        });
+    });
+</script>
+
+</html>

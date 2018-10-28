@@ -1,0 +1,40 @@
+{
+    "normaaliHinta": 16,
+    "alennusryhma": [
+        {
+            "id": 0,
+            "alennus": "Alle 7v",
+            "alennusprosentti": 100
+        },
+        {
+            "id": 1,
+            "alennus": "7-15v",
+            "alennusprosentti": 50
+        },
+        {
+            "id": 2,
+            "alennus": "Yli 65v",
+            "alennusprosentti": 50
+        },
+        {
+            "id": 3,
+            "alennus": "Opiskelija",
+            "alennusprosentti": 45
+        },
+        {
+            "id": 4,
+            "alennus": "Mtk jäsen",
+            "alennusprosentti": 15
+        },
+        {
+            "id": 5,
+            "alennus": "Varusmies",
+            "alennusprosentti": 50
+        },
+        {
+            "id": 6,
+            "alennus": "Opiskelija & Mtk jäsen",
+            "alennusprosentti": 60
+        }
+    ]
+}
